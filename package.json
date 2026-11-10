@@ -1,0 +1,22 @@
+{
+  "name": "mirror-stage-theatre",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Rainsabove — a procedural theatre in the browser",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "preview:file": "vite build && node scripts/inline-preview.mjs",
+    "new": "node scripts/new-content.mjs",
+    "links": "node scripts/new-content.mjs --links",
+    "preview:lan": "vite preview --host 0.0.0.0 --port 4173 --strictPort --base /rainsabove/"
+  },
+  "dependencies": {
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11"
+  }
+}

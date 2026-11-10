@@ -1,0 +1,59 @@
+name: deploy-preview
+
+# 只服务预览仓库（ekko-time999/rainsabove-preview）。
+# 触发：本仓库 rainsabove-test 分支有推送，或手动 dispatch。
+on:
+  push:
+    branches: [rainsabove-test]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: build with preview base
+        env:
+          BASE_PATH: /rainsabove-preview/
+          VITE_PREVIEW: '1'
+        run: npm run build
+
+      - name: assert base and banner
+        run: |
+          set -e
+          test -f dist/index.html
+          grep -q '"/rainsabove-preview/assets/' dist/index.html
+          grep -rq '预览版 · 非正式站点' dist/assets
+          echo "assets:"
+          ls -l dist/assets
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#070504" />
+  <meta name="description" content="泫咏 Rainsabove · 一座由代码搭建的老式镜框式剧院，推门而入，移步换景。" />
+  <title>泫咏 · Rainsabove</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23070504'/%3E%3Cg fill='none' stroke='%23d8c9a8' stroke-width='1.6'%3E%3Ccircle cx='24' cy='24' r='5'/%3E%3Cpath d='M24 5v11M24 32v11M5 24h11M32 24h11M11 11l8 8M37 37l-8-8M37 11l-8 8M11 37l8-8'/%3E%3C/g%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body data-phase="loading">
+  <div id="app">
+    <div id="scene" aria-hidden="true"></div>
+    <div class="grade" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="brand">
+      <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.1">
+          <circle cx="24" cy="24" r="4.2" />
+          <path d="M24 3.5c3.2 6.4 3.2 12.8 0 16.5M24 44.5c-3.2-6.4-3.2-12.8 0-16.5M3.5 24c6.4-3.2 12.8-3.2 16.5 0M44.5 24c-6.4 3.2-12.8 3.2-16.5 0" />
+          <path d="M10 10c5.2 2.6 9.4 6.8 12 12M38 38c-5.2-2.6-9.4-6.8-12-12M38 10c-5.2 2.6-9.4 6.8-12 12M10 38c5.2-2.6 9.4-6.8 12-12" />
+        </g>
+      </svg>
+      <span class="brand-name">泫咏</span>
+      <span class="brand-en">Rainsabove</span>
+    </header>
+
+    <div class="act">
+      <span class="act-no">ACT&nbsp;Ⅰ</span>
+      <span class="act-line"></span>
+      <span class="act-name">门厅</span>
+    </div>
+
+    <div id="loader" class="loader">
+      <svg class="mark mark-lg" viewBox="0 0 48 48" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1">
+          <circle cx="24" cy="24" r="4.2" />
+          <path d="M24 3.5c3.2 6.4 3.2 12.8 0 16.5M24 44.5c-3.2-6.4-3.2-12.8 0-16.5M3.5 24c6.4-3.2 12.8-3.2 16.5 0M44.5 24c-6.4 3.2-12.8 3.2-16.5 0" />
+          <path d="M10 10c5.2 2.6 9.4 6.8 12 12M38 38c-5.2-2.6-9.4-6.8-12-12M38 10c-5.2 2.6-9.4 6.8-12 12M10 38c5.2-2.6 9.4-6.8 12-12" />
+        </g>
+      </svg>
+      <p class="loader-copy">正在开灯</p>
+      <span class="loader-track"><i></i></span>
+    </div>
+
+    <section id="start-screen" class="start" aria-label="入口">
+      <div class="start-scrim"></div>
+      <div class="start-inner">
+        <p class="start-overline">A THEATRE IN THREE DIMENSIONS</p>
+        <h1 class="start-title">泫咏</h1>
+        <div class="start-rule" aria-hidden="true"><i></i><span></span><i></i></div>
+        <p class="start-sub">
+          <span>一座用代码搭起的老式镜框剧院</span>
+          <span>今晚开灯，门没锁</span>
+        </p>
+        <button id="enter-btn" class="enter-btn" type="button">
+          <span>推 门 而 入</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" /></svg>
+        </button>
+        <p class="start-hint">轻推门扇亦可 · 拖拽环视 · WASD 移步</p>
+      </div>
+    </section>
+
+    <section class="hud" aria-label="浏览提示">
+      <div class="stop-card">
+        <span class="stop-no">01</span>
+        <span class="stop-rule"></span>
+        <span class="stop-text"><b>门厅</b><em>FOYER</em></span>
+      </div>
+
+      <div class="hints">
+        <span class="hint">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V6.5a1.5 1.5 0 0 1 3 0V11m0-1.5v-1a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V14c0 4-2 7-6 7-3.5 0-5-2.5-6.5-5L4 12.5a1.5 1.5 0 0 1 2.5-1.7L9 14" /></svg>
+          <span>拖拽环视</span>
+        </span>
+        <span class="hint hint-keys">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2" /><path d="M7 10h.01M11 10h.01M15 10h.01M19 10h.01M8 14h8" /></svg>
+          <span>W A S D 移步</span>
+        </span>
+      </div>
+
+      <nav class="rail" aria-label="停靠点">
+        <span class="rail-item is-active" data-stop="foyer"><i></i><em>门厅</em></span>
+        <span class="rail-item" data-stop="backstage"><i></i><em>后台</em></span>
+        <span class="rail-item" data-stop="stage"><i></i><em>首演台</em></span>
+        <span class="rail-item" data-stop="workshop"><i></i><em>绘景棚</em></span>
+        <span class="rail-item" data-stop="screening"><i></i><em>放映厅</em></span>
+        <span class="rail-item" data-stop="box"><i></i><em>包厢</em></span>
+        <span class="rail-item" data-stop="about"><i></i><em>关于我</em></span>
+      </nav>
+
+      <button id="guide-btn" class="guide-btn" type="button" aria-label="打开站点导览，随时切换目的地">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z" /><circle cx="12" cy="10" r="2.6" /></svg>
+        <span>站点导览</span>
+      </button>
+
+      <button id="enter-stop" class="enter-stop" type="button" aria-hidden="true">
+        <span class="enter-stop-key">E</span>
+        <span class="enter-stop-text">
+          <span class="enter-stop-kicker">进入</span>
+          <span id="enter-stop-label" class="enter-stop-label">绘景棚</span>
+        </span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" /></svg>
+      </button>
+
+      <div id="dir-nav" class="dir-nav" aria-hidden="true"></div>
+
+      <p id="caption" class="caption" role="status"></p>
+    </section>
+
+    <div class="stage-tools" role="group" aria-label="演出控制">
+      <button id="sound-btn" class="stage-tool" type="button" aria-pressed="false" aria-label="声音：开启" title="声音（M）">
+        <svg class="tool-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.1L12 5.6v12.8L7.1 14.5H4z" /><path d="M15.4 9.3a3.8 3.8 0 0 1 0 5.4M18 6.7a7.4 7.4 0 0 1 0 10.6" /></svg>
+        <svg class="tool-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.1L12 5.6v12.8L7.1 14.5H4z" /><path d="M15.6 9.6l4.6 4.8M20.2 9.6l-4.6 4.8" /></svg>
+        <span class="stage-tool-label">声音</span>
+      </button>
+      <button id="curtain-btn" class="stage-tool" type="button" aria-pressed="false" aria-label="开合幕布" title="幕布（C）">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4.4h18M5 4.4v15.2c2.4 0 3.4-2.6 3.4-5.7V4.4M19 4.4v15.2c-2.4 0-3.4-2.6-3.4-5.7V4.4" /></svg>
+        <span class="stage-tool-label">幕布</span>
+      </button>
+      <button id="show-btn" class="stage-tool" type="button" aria-pressed="false" aria-label="开始演出：三遍铃与开幕" title="演出态（P）">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19.4h18M5 19.4V7.6l7-4 7 4v11.8M9.4 19.4v-5.6h5.2v5.6" /></svg>
+        <span class="stage-tool-label">演出</span>
+      </button>
+    </div>
+
+    <div id="dpad" class="dpad" aria-label="移动">
+      <button class="pad pad-up" type="button" data-move="forward" aria-label="前进"><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6" /></svg></button>
+      <button class="pad pad-left" type="button" data-move="left" aria-label="左移"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" /></svg></button>
+      <button class="pad pad-right" type="button" data-move="right" aria-label="右移"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" /></svg></button>
+      <button class="pad pad-down" type="button" data-move="back" aria-label="后退"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg></button>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

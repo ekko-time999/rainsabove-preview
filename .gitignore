@@ -1,0 +1,23 @@
+# 依赖与构建产物
+node_modules/
+dist/
+*.local
+
+# 单文件预览（由 npm run preview:file 生成）
+剧场预览.html
+
+# 截图与临时校验目录
+shots/
+.screenshots/
+.mockups/
+.verify/
+.trae-html-share-packages/
+
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+.env
+.env.*
